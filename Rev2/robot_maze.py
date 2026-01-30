@@ -36,11 +36,9 @@ robot.goto(startx, starty)
 robot.speed(2)
 robot.showturtle()
 
-#---- maze
-
 while True:
 	for maze in range(1, 4):
-		wn.bgpic(f"assets/maze{maze}.png") # or maze2.png, maze3.png
+		wn.bgpic(f"assets/maze{maze}.png")
 		match maze:
 			case 1:
 				for _ in range(4):
@@ -68,6 +66,3 @@ while True:
 		robot.pencolor("darkorchid")
 		robot.goto(startx, starty)
 		robot.setheading(90)
-
-
-wn.mainloop()
