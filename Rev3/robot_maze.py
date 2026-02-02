@@ -1,5 +1,5 @@
-#   a115_robot_maze.py
-import turtle as trtl
+import turtle as t
+import time
 
 #----- maze and turtle config variables
 screen_h = 400
@@ -24,13 +24,13 @@ def turn_right():
 	robot.speed(2)
 
 #----- init screen
-wn = trtl.Screen()
+wn = t.Screen()
 wn.setup(width=screen_w, height=screen_h)
 robot_image = "assets/robot.gif"
 wn.addshape(robot_image)
 
 #----- init robot
-robot = trtl.Turtle(shape=robot_image)
+robot = t.Turtle(shape=robot_image)
 robot.hideturtle()
 robot.color("darkorchid")
 robot.pencolor("darkorchid")
@@ -81,6 +81,7 @@ while True:
 				move(2)
 				turn_left()
 				move()
+		time.sleep(1)
 		# reset
 		robot.clear()
 		robot.pencolor("darkorchid")
