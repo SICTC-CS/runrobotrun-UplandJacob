@@ -14,14 +14,15 @@ def move(n=1):
 		robot.dot(10)
 		robot.fd(50)
 
+def turn(rt=False):
+	robot.speed(0)
+	robot.lt(-90 if rt else 90)
+	robot.speed(2)
+
 def turn_left():
-	robot.speed(0)
-	robot.lt(90)
-	robot.speed(2)
+	turn()
 def turn_right():
-	robot.speed(0)
-	robot.rt(90)
-	robot.speed(2)
+	turn(True)
 
 #----- init screen
 wn = t.Screen()
@@ -63,24 +64,14 @@ while True:
 					if i == 4:
 						robot.pencolor("red")
 			case 4:
-				turn_right()
-				move()
-				turn_left()
-				move(2)
-				turn_left()
-				move()
-				turn_right()
-				move(2)
+				for i in range(4):
+					turn(i in [0, 3])
+					move(2 if i % 2 else 1)
 				turn_right()
 				move(4)
-				turn_right()
-				move(2)
-				turn_right()
-				move()
-				turn_left()
-				move(2)
-				turn_left()
-				move()
+				for i in range(4):
+					turn(i in [0, 1])
+					move(1 if i % 2 else 2)
 		time.sleep(1)
 		# reset
 		robot.clear()
