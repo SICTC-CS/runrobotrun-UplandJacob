@@ -14,11 +14,10 @@ def move(n=1):
 		robot.dot(10)
 		robot.fd(50)
 
-def turn(rt=False):
+def turn(rt=False): # default left
 	robot.speed(0)
-	robot.lt(-90 if rt else 90)
+	robot.lt(-90 if rt else 90) # -90 to left is right
 	robot.speed(2)
-
 def turn_left():
 	turn()
 def turn_right():
@@ -31,8 +30,7 @@ robot_image = "assets/robot.gif"
 wn.addshape(robot_image)
 
 #----- init robot
-robot = t.Turtle(shape=robot_image)
-robot.hideturtle()
+robot = t.Turtle(shape=robot_image, visible=False)
 robot.color("darkorchid")
 robot.pencolor("darkorchid")
 robot.penup()
@@ -57,7 +55,7 @@ while True:
 			case 3:
 				for i in range(8):
 					move()
-					turn(not i % 2)# switch between left and right
+					turn(not i % 2) # switch between left and right
 					if i == 4:
 						robot.pencolor("red")
 			case 4:
