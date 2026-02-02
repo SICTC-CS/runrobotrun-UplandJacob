@@ -57,10 +57,7 @@ while True:
 			case 3:
 				for i in range(8):
 					move()
-					if i % 2:
-						turn_left()
-					else:
-						turn_right()
+					turn(not i % 2)
 					if i == 4:
 						robot.pencolor("red")
 			case 4:
