@@ -57,18 +57,18 @@ while True:
 			case 3:
 				for i in range(8):
 					move()
-					turn(not i % 2)
+					turn(not i % 2)# switch between left and right
 					if i == 4:
 						robot.pencolor("red")
 			case 4:
 				for i in range(4):
-					turn(i in [0, 3])
-					move(2 if i % 2 else 1)
+					turn(i in [0, 3]) # only right on 1 and 4 (i = 0 or 3)
+					move(2 if i % 2 else 1) # move 1 on even, 2 on odd
 				turn_right()
 				move(4)
 				for i in range(4):
-					turn(i in [0, 1])
-					move(1 if i % 2 else 2)
+					turn(i in [0, 1]) # only right on 1 and 2 (i = 0 or 1)
+					move(1 if i % 2 else 2) # move 2 on even, 1 on odd
 		time.sleep(1)
 		# reset
 		robot.clear()
